@@ -3,7 +3,7 @@ import { useEffect } from "react"
 
 const DisplayFootball = () => {
  
-    let [footBall, setFootBall] = useState({})
+    let [footBall, setFootBall] = useState([])
 
     useEffect(() => {
         fetch('https://jsonmock.hackerrank.com/api/football_matches?page=1')
