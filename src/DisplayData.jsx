@@ -1,23 +1,32 @@
 import { useEffect, useState } from "react"
-import {productData} from './data'
+// import {productData} from './data'
 import './DisplayData.css'
 
 const DisplayData = () => {
 
-    let username = ['ritesh', 'rinky', 'vivek', 'ritik', 'yogesh', 'deepak', 'mulkesh', 'sakshi', 'pawan']
+    // let username = ['ritesh', 'rinky', 'vivek', 'ritik', 'yogesh', 'deepak', 'mulkesh', 'sakshi', 'pawan']
     // let productData = []
     // // console.log(productData)
+    let [productData, setProductData] = useState([])
 
+    console.log("DisplayData")
+    useEffect(() => {
 
+        fetch('https://fakestoreapi.com/products')
+        .then(response => response.json())
+        .then(result => setProductData(result))
+    },[])
+        
+        
     return (
         <>
-            <ul>
+            {/* <ul>
                 {username.map((name, i) => {
                     return (
                         <li key={i}>{name}</li>
                     ) 
                 })}
-            </ul>
+            </ul> */}
             <div className="container">
                 {
                     productData.map((product, index) => {
